@@ -1,0 +1,27 @@
+# VS Code
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment Variables
+.env
+
+# Node Modules (future)
+node_modules/
+
+# Build Files
+dist/
+build/
+
+# Spring Boot (future)
+target/
+*.class
+*.jar
+
+# IntelliJ
+.idea/
