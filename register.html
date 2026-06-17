@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Register | SCENTIORA</title>
+
+  <meta
+    name="description"
+    content="Create your SCENTIORA account to explore luxury fragrances, wishlist products and manage orders."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/auth.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+
+<body>
+
+  <main class="auth-page">
+
+    <section class="auth-card">
+
+      <a href="index.html" class="auth-logo">
+        SCENTIORA
+        <span>FROM SCENT TO SIGNATURE</span>
+      </a>
+
+      <div class="auth-header">
+        <h1>Create Account</h1>
+        <p>
+          Begin your luxury fragrance journey with SCENTIORA.
+        </p>
+      </div>
+
+      <form class="auth-form" id="registerForm">
+
+        <div class="form-group">
+          <label for="registerName">Full Name</label>
+          <input
+            type="text"
+            id="registerName"
+            name="fullName"
+            placeholder="Enter your full name"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="registerEmail">Email Address</label>
+          <input
+            type="email"
+            id="registerEmail"
+            name="email"
+            placeholder="Enter your email"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="registerPhone">Phone Number</label>
+          <input
+            type="tel"
+            id="registerPhone"
+            name="phone"
+            placeholder="Enter your phone number"
+            autocomplete="tel"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="registerPassword">Password</label>
+          <input
+            type="password"
+            id="registerPassword"
+            name="password"
+            placeholder="Create password"
+            autocomplete="new-password"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirm password"
+            autocomplete="new-password"
+            required
+          >
+        </div>
+
+        <button type="submit" class="btn btn-primary auth-btn">
+          Create Account
+        </button>
+
+      </form>
+
+      <p class="auth-switch">
+        Already have an account?
+        <a href="login.html">Login</a>
+      </p>
+
+    </section>
+
+  </main>
+
+  <script src="./js/auth.js"></script>
+
+</body>
+</html>

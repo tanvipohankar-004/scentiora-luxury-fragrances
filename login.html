@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Login | SCENTIORA</title>
+
+  <meta
+    name="description"
+    content="Login to SCENTIORA to manage your fragrance profile, wishlist, cart and orders."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/auth.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+
+<body>
+
+  <main class="auth-page">
+
+    <section class="auth-card">
+
+      <a href="index.html" class="auth-logo">
+        SCENTIORA
+        <span>FROM SCENT TO SIGNATURE</span>
+      </a>
+
+      <div class="auth-header">
+        <h1>Welcome Back</h1>
+        <p>
+          Login to access your fragrance profile, wishlist, cart and orders.
+        </p>
+      </div>
+
+      <form class="auth-form" id="loginForm">
+
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input
+            type="email"
+            id="loginEmail"
+            name="email"
+            placeholder="Enter your email"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input
+            type="password"
+            id="loginPassword"
+            name="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          >
+        </div>
+
+        <div class="auth-options">
+
+          <label class="remember-me">
+            <input type="checkbox" id="rememberMe" name="rememberMe">
+            Remember Me
+          </label>
+
+          <a href="#" class="auth-link">
+            Forgot Password?
+          </a>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary auth-btn">
+          Login
+        </button>
+
+      </form>
+
+      <p class="auth-switch">
+        New to SCENTIORA?
+        <a href="register.html">Create Account</a>
+      </p>
+
+    </section>
+
+  </main>
+
+  <script src="./js/auth.js"></script>
+
+</body>
+</html>
