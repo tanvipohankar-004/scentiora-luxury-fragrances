@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded",()=>{
-  renderShopProducts(products);
+  setupInitialCategory();
   setupShopFilters();
+  applyFilters();
 });
 
 const grid=document.getElementById("shopProducts");
@@ -11,23 +12,58 @@ const filters=document.querySelectorAll(".shop-filter");
 
 let activeCategory="all";
 
+function setupInitialCategory(){
+  const params=new URLSearchParams(window.location.search);
+  const category=params.get("category");
+
+  if(category){
+    activeCategory=category;
+
+    filters.forEach(btn=>{
+      btn.classList.toggle(
+        "active",
+        btn.dataset.category===activeCategory
+      );
+    });
+  }
+}
+
 function renderShopProducts(list){
   if(!grid) return;
 
   grid.innerHTML=list.map(product=>`
     <article class="product-card">
-      <button class="wishlist-btn">♡</button>
 
-      <div class="product-image">
+      <button class="wishlist-btn" data-id="${product.id}">
+        ♡
+      </button>
+
+      <a href="product.html?id=${product.id}" class="product-image">
         <img src="${product.image}" alt="${product.name}">
-      </div>
+      </a>
 
       <div class="product-content">
-        <span class="product-category">${formatCategory(product.category)}</span>
-        <h3 class="product-name">${product.name}</h3>
-        <p class="product-price">₹${product.price.toLocaleString("en-IN")}</p>
-        <button class="add-cart-btn" data-id="${product.id}">Add To Cart</button>
+
+        <span class="product-category">
+          ${formatCategory(product.category)}
+        </span>
+
+        <h3 class="product-name">
+          <a href="product.html?id=${product.id}">
+            ${product.name}
+          </a>
+        </h3>
+
+        <p class="product-price">
+          ₹${product.price.toLocaleString("en-IN")}
+        </p>
+
+        <a href="product.html?id=${product.id}" class="add-cart-btn">
+          View Details
+        </a>
+
       </div>
+
     </article>
   `).join("");
 

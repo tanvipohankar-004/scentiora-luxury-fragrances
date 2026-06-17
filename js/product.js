@@ -14,7 +14,7 @@ function renderProductDetails(){
     container.innerHTML=`
       <div class="product-not-found">
         <h2>Product Not Found</h2>
-        <p>The fragrance you are looking for is unavailable.</p>
+        <p>Please open this page from the Shop page.</p>
         <a href="shop.html" class="btn btn-primary">Back To Shop</a>
       </div>
     `;
@@ -22,7 +22,10 @@ function renderProductDetails(){
   }
 
   document.title=`${product.name} | SCENTIORA`;
-  breadcrumb.textContent=product.name;
+
+  if(breadcrumb){
+    breadcrumb.textContent=product.name;
+  }
 
   container.innerHTML=`
     <div class="product-detail-image">
@@ -30,6 +33,7 @@ function renderProductDetails(){
     </div>
 
     <div class="product-detail-content">
+
       <span class="product-detail-category">
         ${formatCategory(product.category)}
       </span>
@@ -41,7 +45,8 @@ function renderProductDetails(){
       </div>
 
       <p class="product-detail-desc">
-        A carefully curated fragrance from the ${formatCategory(product.category)} collection, selected for its elegance, character and signature appeal.
+        A carefully curated fragrance from the ${formatCategory(product.category)} collection,
+        selected for elegance, character and signature appeal.
       </p>
 
       <div class="product-detail-price">
@@ -59,6 +64,7 @@ function renderProductDetails(){
       </div>
 
       <div class="product-info-grid">
+
         <div>
           <strong>Collection</strong>
           <span>${formatCategory(product.category)}</span>
@@ -70,10 +76,12 @@ function renderProductDetails(){
         </div>
 
         <div>
-          <strong>Delivery</strong>
-          <span>Premium Packaging</span>
+          <strong>Packaging</strong>
+          <span>Premium Luxury Box</span>
         </div>
+
       </div>
+
     </div>
   `;
 
@@ -82,6 +90,7 @@ function renderProductDetails(){
 
 function renderRelatedProducts(currentProduct){
   const relatedContainer=document.getElementById("relatedProducts");
+
   if(!relatedContainer) return;
 
   const related=products
@@ -93,20 +102,37 @@ function renderRelatedProducts(currentProduct){
 
   relatedContainer.innerHTML=related.map(product=>`
     <article class="product-card">
-      <button class="wishlist-btn">♡</button>
+
+      <button class="wishlist-btn" data-id="${product.id}">
+        ♡
+      </button>
 
       <a href="product.html?id=${product.id}" class="product-image">
         <img src="${product.image}" alt="${product.name}">
       </a>
 
       <div class="product-content">
-        <span class="product-category">${formatCategory(product.category)}</span>
-        <h3 class="product-name">${product.name}</h3>
-        <p class="product-price">₹${product.price.toLocaleString("en-IN")}</p>
+
+        <span class="product-category">
+          ${formatCategory(product.category)}
+        </span>
+
+        <h3 class="product-name">
+          <a href="product.html?id=${product.id}">
+            ${product.name}
+          </a>
+        </h3>
+
+        <p class="product-price">
+          ₹${product.price.toLocaleString("en-IN")}
+        </p>
+
         <a href="product.html?id=${product.id}" class="add-cart-btn">
           View Details
         </a>
+
       </div>
+
     </article>
   `).join("");
 }
